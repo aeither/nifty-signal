@@ -20,6 +20,7 @@
     "@tanstack/react-query": "^4.22.0",
     "@thirdweb-dev/sdk": "^3.6.9",
     "@walletconnect/solib": "^0.2.2",
+    "clsx": "^1.2.1",
     "daisyui": "^1.24.3",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
@@ -34,7 +35,7 @@
     "react-toastify": "^9.1.1",
     "short-uuid": "^4.2.2",
     "tweetnacl": "^1.0.3",
-    "zustand": "^3.6.9"
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
     "@types/node": "17.0.10",
