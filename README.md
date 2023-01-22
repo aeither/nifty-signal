@@ -89,28 +89,6 @@ Anyone is welcome to create an issue to build, discuss or request a new feature 
 
 If submitting a feature, please reference the project structure shown above and try to follow the overall architecture and style presented in the existing scaffold.
 
-### Committing
-
-To choose a task or make your own, do the following:
-
-1. [Add an issue](https://github.com/solana-dev-adv/solana-dapp-next/issues/new) for the task and assign it to yourself or comment on the issue
-2. Make a draft PR referencing the issue.
-
-The general flow for making a contribution:
-
-1. Fork the repo on GitHub
-2. Clone the project to your own machine
-3. Commit changes to your own branch
-4. Push your work back up to your fork
-5. Submit a Pull request so that we can review your changes
-
-**NOTE**: Be sure to merge the latest from "upstream" before making a 
-pull request!
-
-You can find tasks on the [project board](https://github.com/solana-dev-adv/solana-dapp-next/projects/1) 
-or create an issue and assign it to yourself.
-
-
 ## Learn More Next Js
 
 To learn more about Next.js, take a look at the following resources:
