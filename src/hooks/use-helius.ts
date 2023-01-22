@@ -29,10 +29,34 @@ if (!process.env.NEXT_PUBLIC_API_KEY)
   throw new Error('NEXT_PUBLIC_API_KEY not found')
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
+if (!process.env.NEXT_PUBLIC_DISCORD_WEBHOOK)
+  throw new Error('NEXT_PUBLIC_DISCORD_WEBHOOK not found')
+const DISCORD_WEBHOOK = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK
+
 export default function useHelius() {
   const wallet = useWallet()
   const { selected } = useStore()
   const { publicKey } = wallet
+
+  //  Get list of NFTs
+  const createWebhook = async () => {
+    const body = {
+      webhookURL: DISCORD_WEBHOOK,
+      transactionTypes: ['NFT_SALE'],
+      accountAddresses: ['M2mx93ekt1fmXSVkTrUL9xVFHkmME8HTUi5Cyc5aF7K'],
+      webhookType: 'discord',
+    }
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }
+
+    fetch(`https://api.helius.xyz/v0/webhooks?api-key=${API_KEY}`, options)
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err))
+  }
 
   //  Get list of NFTs
   const { data: events } = useQuery<Balance>({
@@ -134,5 +158,7 @@ export default function useHelius() {
     balance,
     history,
     mints,
+    events,
+    createWebhook,
   }
 }

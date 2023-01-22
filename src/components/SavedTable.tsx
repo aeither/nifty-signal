@@ -1,6 +1,12 @@
+import clsx from 'clsx'
+import { BellRing, Boxes } from 'lucide-react'
 import { FC, ReactNode } from 'react'
-import { BellRing } from 'lucide-react'
 
+import useCreateClock from 'hooks/use-clock'
+import { useState } from 'react'
+import useHelius from 'hooks/use-helius'
+
+const SEED_QUEUE = 'thread'
 interface Props {
   children?: ReactNode
   data: string[]
@@ -8,13 +14,9 @@ interface Props {
 }
 
 export const SavedTable: FC<Props> = ({ data: mints, remove }) => {
-  // <h2>Mints</h2>
-  // {saved.map((mint) => (
-  //   <>
-  //     <div className="flex flex-col">{mint}</div>
-  //   </>
-  // ))}
-  // <button onClick={() => reset()}>reset</button>
+  const { createQueue } = useCreateClock()
+  const [isActive, setIsActive] = useState(false)
+  const { createWebhook } = useHelius()
 
   return (
     <div className="overflow-x-auto">
@@ -23,6 +25,7 @@ export const SavedTable: FC<Props> = ({ data: mints, remove }) => {
           <tr>
             <th>#</th>
             <th>mint</th>
+            <th></th>
             <th></th>
             <th>Remove</th>
           </tr>
@@ -33,7 +36,22 @@ export const SavedTable: FC<Props> = ({ data: mints, remove }) => {
               <td>{i}</td>
               <td>{mint}</td>
               <td>
-                <BellRing className="cursor-pointer text-yellow-400" />
+                <Boxes
+                  onClick={() => createWebhook()}
+                  className={clsx(
+                    'cursor-pointer',
+                    isActive && 'text-yellow-400'
+                  )}
+                />
+              </td>
+              <td>
+                <BellRing
+                  onClick={() => createQueue()}
+                  className={clsx(
+                    'cursor-pointer',
+                    isActive && 'text-yellow-400'
+                  )}
+                />
               </td>
               <td>
                 <button className="text-rose-400" onClick={() => remove(mint)}>
