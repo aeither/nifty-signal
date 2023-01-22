@@ -21,31 +21,6 @@ import { ContextProvider } from '../contexts/ContextProvider'
 require('@solana/wallet-adapter-react-ui/styles.css')
 require('../styles/globals.css')
 
-const PROJECT_ID = process.env.NEXT_PUBLIC_PROJECT_ID || ''
-
-init(() => {
-  return {
-    connectorName: WalletConnectConnector.connectorName,
-    connectors: [
-      new PhantomConnector(),
-      new InjectedConnector('window.solflare'),
-      new InjectedConnector('window.solana'),
-      new WalletConnectConnector({
-        relayerRegion: 'wss://relay.walletconnect.com',
-        metadata: {
-          description: 'Test app for solib',
-          name: 'Test Solib dApp',
-          icons: ['https://avatars.githubusercontent.com/u/37784886'],
-          url: 'http://localhost:3000',
-        },
-        autoconnect: true,
-        qrcode: false,
-      }),
-    ],
-    chosenCluster: mainnetBetaBlockDaemon,
-  } as StoreConfig
-}, PROJECT_ID)
-
 const queryClient = new QueryClient()
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
@@ -63,9 +38,10 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 
             <AppBar />
             <ContentContainer>
-              <Component {...pageProps} />
+              <div className="flex items-center justify-center mt-16">
+                <Component {...pageProps} />
+              </div>
             </ContentContainer>
-            <Footer />
           </div>
         </ContextProvider>
       </QueryClientProvider>

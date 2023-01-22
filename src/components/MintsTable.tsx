@@ -1,6 +1,5 @@
-import { FC, ReactNode } from 'react'
-import moment from 'moment'
 import { Mints } from 'hooks/use-helius'
+import { FC, ReactNode } from 'react'
 
 interface Props {
   children?: ReactNode
