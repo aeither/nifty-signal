@@ -9,31 +9,25 @@ import { HistoryTable } from 'components/HistoryTable'
 import { MintsTable } from 'components/MintsTable'
 import useHelius from 'hooks/use-helius'
 import useStore from 'stores/use-store'
+import { SavedTable } from 'components/SavedTable'
 
 if (!process.env.NEXT_PUBLIC_API_KEY)
   throw new Error('NEXT_PUBLIC_API_KEY not found')
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
 export const HomeView: FC = ({}) => {
-  const { saved, insert, reset, select, selected } = useStore()
+  const { saved, insert, reset, select, selected, remove } = useStore()
   const [activeTab, setActiveTab] = useState(1)
   const [nftCreator, setNftCreator] = useState(
     'A4FM6h8T5Fmh9z2g3fKUrKfZn6BNFEgByR8QGpdbQhk1'
   ) // default to y00ts
   const { balance, history, mints } = useHelius()
-  console.log('🚀 ~ file: index.tsx:24 ~ mints', mints)
 
   const List = () => <>{mints && <MintsTable data={mints} />}</>
 
   const Favourite = () => (
     <>
-      <h2>Mints</h2>
-      {saved.map((mint) => (
-        <>
-          <div className="flex flex-col">{mint}</div>
-        </>
-      ))}
-      <button onClick={() => reset()}>reset</button>
+      <SavedTable data={saved} remove={remove} />
     </>
   )
 
@@ -88,13 +82,13 @@ export const HomeView: FC = ({}) => {
             </>
           ))}
         </div>
-        <div className={clsx(activeTab != 0 && 'hidden')}>
+        <div className={clsx('w-full', activeTab != 0 && 'hidden')}>
           <List />
         </div>
-        <div className={clsx(activeTab != 1 && 'hidden')}>
+        <div className={clsx('w-full', activeTab != 1 && 'hidden')}>
           <Favourite />
         </div>
-        <div className={clsx(activeTab != 2 && 'hidden')}>
+        <div className={clsx('w-full', activeTab != 2 && 'hidden')}>
           <Profile />
         </div>
         {/* {wallet.publicKey && <p>Public Key: {wallet.publicKey.toBase58()}</p>} */}
