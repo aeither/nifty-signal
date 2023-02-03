@@ -11,6 +11,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The responsive version for wallets and wallet adapter may not function or work as expected for mobile based on plugin and wallet compatibility.
 
+## Demo
+
+https://nifty-signal.vercel.app/
+
 ## Installation
 
 ```bash
