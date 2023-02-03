@@ -6,6 +6,7 @@ import { FC, useState } from 'react'
 import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 import clsx from 'clsx'
 import { HistoryTable } from 'components/HistoryTable'
+import { NotificationTable } from 'components/NotificationTable'
 import { MintsTable } from 'components/MintsTable'
 import useHelius from 'hooks/use-helius'
 import useStore from 'stores/use-store'
@@ -44,6 +45,12 @@ export const HomeView: FC = ({}) => {
     </>
   )
 
+  const Notification = () => (
+    <>
+      <NotificationTable />
+    </>
+  )
+
   return (
     <div className="container">
       <div className="md:hero-content flex flex-col">
@@ -67,20 +74,22 @@ export const HomeView: FC = ({}) => {
         </fieldset>
 
         <div className="tabs">
-          {['List', 'Favourite', 'Profile'].map((title, index) => (
-            <>
-              <a
-                key={index}
-                className={clsx(
-                  'tab tab-bordered',
-                  activeTab === index && 'tab-active'
-                )}
-                onClick={() => setActiveTab(index)}
-              >
-                {title}
-              </a>
-            </>
-          ))}
+          {['List', 'Favourite', 'Profile', 'Notification'].map(
+            (title, index) => (
+              <>
+                <a
+                  key={index}
+                  className={clsx(
+                    'tab tab-bordered',
+                    activeTab === index && 'tab-active'
+                  )}
+                  onClick={() => setActiveTab(index)}
+                >
+                  {title}
+                </a>
+              </>
+            )
+          )}
         </div>
         <div className={clsx('w-full', activeTab != 0 && 'hidden')}>
           <List />
@@ -90,6 +99,9 @@ export const HomeView: FC = ({}) => {
         </div>
         <div className={clsx('w-full', activeTab != 2 && 'hidden')}>
           <Profile />
+        </div>
+        <div className={clsx('w-full', activeTab != 3 && 'hidden')}>
+          <Notification />
         </div>
         {/* {wallet.publicKey && <p>Public Key: {wallet.publicKey.toBase58()}</p>} */}
       </div>
