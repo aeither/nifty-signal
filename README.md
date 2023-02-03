@@ -1,11 +1,9 @@
 
-# Solana dApp Scaffold Next
+# NiftySignal
 
-The Solana dApp Scaffold repos are meant to house good starting scaffolds for ecosystem developers to get up and running quickly with a front end client UI that integrates several common features found in dApps with some basic usage examples. Wallet Integration. State management. Components examples. Notificaitons. Setup recommendations.
+NiftySignal is a tool that allows users to easily add NFTs from the list to their personal watchlist. Once an NFT is added to the watchlist, users can activate notification for events. This feature allows users to stay updated on their desired NFTs, making it easier for them to track.
 
-Responsive                     |  Desktop
-:-------------------------:|:-------------------------:
-![](scaffold-mobile.png)  |  ![](scaffold-desktop.png)
+![nifty-signal](https://user-images.githubusercontent.com/36173828/213940357-bc95a970-0065-4ed2-a644-4f5492a85691.png)
 
 ## Getting Started
 
