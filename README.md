@@ -5,15 +5,15 @@ NiftySignal is a tool that allows users to easily add NFTs from the list to thei
 
 ![nifty-signal](https://user-images.githubusercontent.com/36173828/213940357-bc95a970-0065-4ed2-a644-4f5492a85691.png)
 
+## Demo
+
+https://nifty-signal.vercel.app/
+
 ## Getting Started
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 The responsive version for wallets and wallet adapter may not function or work as expected for mobile based on plugin and wallet compatibility.
-
-## Demo
-
-https://nifty-signal.vercel.app/
 
 ## Installation
 
