@@ -3,7 +3,31 @@
 
 NiftySignal is a tool that allows users to easily add NFTs from the list to their personal watchlist. Once an NFT is added to the watchlist, users can activate notification for events. This feature allows users to stay updated on their desired NFTs, making it easier for them to track.
 
-![nifty-signal](https://user-images.githubusercontent.com/36173828/213940357-bc95a970-0065-4ed2-a644-4f5492a85691.png)
+![nifty-signal](https://user-images.githubusercontent.com/36173828/216684858-3c6dc472-99ee-47ea-91a6-fdd254dab931.png)
+
+## Demo
+
+https://nifty-signal.vercel.app/
+
+## How it works
+
+![How it works](https://user-images.githubusercontent.com/36173828/216760506-00dd2c27-4e7f-4fb6-a92c-2887965fbeee.png)
+
+## Tech stack
+
+- NextJS
+- TailwindCSS
+- Redis
+- Helius
+- Daisyui
+- Zustand
+- Lucide Icons
+
+## Next steps
+
+- Notifications: SMS, email, Discord...
+- Analytics
+- Instant buy NFTs
 
 ## Getting Started
 
