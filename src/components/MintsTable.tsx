@@ -23,7 +23,7 @@ export const MintsTable: FC<Props> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {mints.map((mint, i) => (
+          {mints && mints.map((mint, i) => (
             <tr key={i}>
               <td>{i}</td>
               <td>{mint.mint}</td>

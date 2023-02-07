@@ -30,13 +30,14 @@ export const HistoryTable: FC<Props> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((tx, i) => (
-            <tr key={i}>
-              <td>{tx.description}</td>
-              <td>{tx.fee}</td>
-              <td>{moment(tx.timestamp * 1000).fromNow()}</td>
-            </tr>
-          ))}
+          {data &&
+            data.map((tx, i) => (
+              <tr key={i}>
+                <td>{tx.description}</td>
+                <td>{tx.fee}</td>
+                <td>{moment(tx.timestamp * 1000).fromNow()}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
